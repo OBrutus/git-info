@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Guide</title>
+  </head>
+  <body>
+    <a href="index.html">&lt Dashboard</a>
+    <h2> Guide to <img src="res/git.png" height=25px alt="Git"> </h2>
+    <p>Highlights of the article:</p>
+<ol>
+<li>Introduction to Git</li>
+<li>Git Repository Structure</li>
+<li>Accessing github central repository via Https or ssh</li>
+<li>Working with git – Important Git commands</li>
+</ol>
+<p align="center"><strong>Introduction to Git</strong></p>
+<p>Git is a distributed version control system.  So, What is a version Control System?<br>
+A version Control system is a system which maintains different versions of your project when we work in a team or as an individual. (system managing changes to files) As the project progresses, new features get added to it. So,<br>
+a version control system maintains all your different versions of your project  for you and you can rollback to any version you want without causing any trouble to you for maintaining different versions by giving names to it like MyProject, MyProjectWithFeature1, etc.</p>
+<p>Distributed Version control system means every collaborator(any developer working on a team project)has a local respository of the project in his/her local machine unlike central where team members should  have an internet connectionto everytime update their work to main central repository.</p>
+<p>So, by distributed we mean : project is distributed.<br>
+A repository is a area which keeps all your project files, images, etc.</p>
+<p>In terms of Github : different versions of projects corresponds to commits.<br>
+<p align="center"><strong>Git Repository Structure</strong></p>
+<p>It consists of 4 parts: </p>
+<ol>
+<li><strong>Working directory :</strong> This is your local directory where you make the project (write code) and make  changes to it.</li>
+<li><strong>Staging Area (or index) :</strong> this is an area where you first need to put your project before committing. This is used for code review by other team members.</li>
+<li><strong>Local Repository :</strong> this is your local repository where you commit changes to the<br>
+project before pushing them to central repository on Github. This is what is provided by distributed version control system. This corresponds to the .git folder in our directory.</li>
+<li><strong>Central Repository : </strong>This is the main project on the central server, a copy of which<br>
+is with every team member as local repository.</li>
+</ol>
+<p>All the repository structure is internal to Git and are transparent to developer.</p>
+<p><strong>Some commands which relate to repository structure:</strong></p>
+<pre><strong>git add </strong>
+// transfers your project from working directory to staging area.
+
+<strong>git commit </strong>
+// transfers your project from staging area to Local Repository.
+
+<strong>git push</strong>
+// transfers project from local to central repository. (requires internet)
+</pre>
+<p align="center"><strong>Accessing github central repository via Https or SSH</strong></p>
+<p>Here, transfer project means transfer changes as git is very lightweight and works on changes in project. It internally does the transfer by using Lossless Compression Techniques and transferring compressed files. Https is the default way to access github central repository.</p><br>
+<pre><strong>by git remote add origin http_url :</strong>
+remote means the remote central repository.
+origin corresponds to your central repository
+which you need to define (here by giving https 
+url) in order to push changes to github.
+
+<strong>Via SSH: </strong>connect to Linux or other servers remotely.
+</pre>
+<p>If you access github by ssh you don’t need to type your username and password everytime you push changes to github.</p>
+<p><strong>Terminal commands :</strong></p>
+<pre>ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+This does the ssh key generation using RSA cryptographic algorithm.
+
+eval "$(ssh-agent -s)" -&gt; enable information about local login session.
+
+ssh-add ~/.ssh/id_rsa -&gt; add to ssh key.
+cat ~/.ssh/id_rsa (use .pub file if not able to connect)
+add this ssh key to github.<br>
+
+Now, go to github settings -&gt; new ssh key -&gt; create key
+
+ssh -T git@github.com -&gt; activate ssh key (test connection)
+
+Refresh your github Page.
+</pre>
+<p align="center"><strong>Working with git – Important Git commands</strong></p>
+<ul>
+<li><strong>Git user configuration (First Step)</strong>
+<pre>git --version (to check git version)
+git config --global user.name "your name here"
+git config --global user.email "your email here"</pre>
+<p>These are the information attached to commits.
+</p></li>
+<li><strong>Initialize directory : </strong>
+<pre>git init 
+initializes your directory to work with git and
+makes a local repository. .git folder is made</pre>
+<p>OR</p>
+<pre>git clone http_url 
+This is done if we have an existing git repository.</pre>
+</li>
+<li><strong>Connecting to repository : </strong>
+<pre>git remote add origin http_url/ssh_url 
+connect to central repo to push/pull</pre>
+<p>pull means transferring the changes on central repository to your local repository. push is the vice versa of pull.</p>
+<pre>git pull origin master</pre>
+<p>Always first pull contents from central repo before pushing so that you are updated with other team members work.<br>
+Here, master means the master branch (in Git).
+</p></li>
+<li><strong>Steps to add a file to central Repository:</strong><br>
+First your file is in your working directory, Move it to the staging area by typing:<p></p>
+<pre>git add -A (for all files and folders)</pre>
+<p>git status : here, untracked files means files which you haven’t added to the staging area. Changes not staged for commit means you have staged the file earlier then you have made changes in that files in your working directory and the changes need to be  staged once more.<br>
+Changes ready to be committed : these are files which have been committed and ready to  be pushed to central repository.</p>
+<pre>git commit -a -m "message for commit"
+-a : commit all files and for files which have been 
+     staged earlier need not to be git add once more
+-a options does that automatically.</pre>
+<pre>git push origin master -&gt; pushes your files to 
+                         github master branch
+git push origin anyOtherBranch -&gt; pushes any 
+                      other branch to github.
+git log ; to see all your commits</pre>
+<pre>git checkout commitObject(first 8 bits) file.txt-&gt; 
+revert back to this previous commit  for file file.txt</pre>
+<p>commitObject can be seen via git log.</p>
+<p>HEAD -&gt; pointer to our latest commit.
+</p></li>
+</ul>
+<p align="center"><strong>Branching in Git</strong></p>
+<pre>create branch -&gt;
+git branch myBranch
+or
+git checkout -b myBranch -&gt; make and switch to the 
+                                  branch myBranch</pre>
+<p>Do the work in your branch.</p><br>
+<p>Then,</p>
+<pre>git checkout master ; to switch back to master branch</pre>
+<p>Now,<br>
+merge contents with your myBranch By:</p>
+<pre>git merge myBranch (writing in master branch)</pre>
+<p>This merger makes a new commit.</p>
+<p><strong>Another way:</strong></p>
+<pre>git rebase myBranch</pre>
+<p>This merges the branch with master in a serial fashion.</p>
+<p>Now,</p>
+<pre>git push origin master</pre>
+<p>Contributing to open source by : fork a project and do some work (add new features) in your branch and then do a pull request on github.</p>
+<p>Tutorial to learn git in more depth which I found most suitable :</p>
+    <footer>
+      <hr size="3%" color="black">
+      Worked under OSS Lab,<br>
+      WCE Sangli.<br>
+      By : 2017BTEIT00062 <br>
+      <a href="https://github.com/obrutus">Aniket Vaishnav</a>
+      <hr>
+      <p id="date"><script type="text/javascript">
+        document.getElementById('date').innerHTML=Date();
+      </script></p>
+    </footer>
+  </body>
+</html>

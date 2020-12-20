@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Making of this app</title>
+    <style media="screen">
+    code {
+      font-family: monospace;
+      font-size: 15px
+    }
+    </style>
+  </head>
+  <body>
+    <a href="index.html">&lt Dashboard</a>
+    This app was made from all open source tools. <br>
+    Even Atom was used to create it from the scratch. <br>
+    
+    <h2>Docker Side</h2>
+    <h3>To build the image</h3>
+    You need to build the Image upon some pre existing image. <br>
+    Here I have used Nginx Server to host this. <br>
+    Hence image is nginx:latest can be found upon <a href="https://hub.docker.com/_/nginx">DockerHub</a> or <a href="https://github.com/nginxinc/docker-nginx/">GitHub</a>
+    <br> <br>
+    Command to buld <br>
+    <code>docker build -t git_app:oss .</code> <br>
+    git_app is the name <br>
+    oss is the tag <br>
+    where as . reffers to current directory where the source resides
+    <br> <br>
+    Run via <br>
+    <code>docker run -d --name git_app -p 8080:80 git_app:oss</code>
+    <br>
+    <br>
+    You are good to go Just open browser and type 
+    <code>127.0.0.1:8080</code>
+    <br> <br>
+    
+    <h2>About the web page</h2>
+    You can find out basic template <a href="template">here</a>. <br>
+    Dashboard is the main page and decent to understand and is <a href="index.html">here</a>. <br>
+    
+    <h2>Contribution</h2>
+    If you wish to contribute you happily can and is reccomended to.
+    
+    <footer>
+      <hr size="3%" color="black">
+      Worked under OSS Lab,<br>
+      WCE Sangli.<br>
+      By : 2017BTEIT00062 <br>
+      <a href="https://github.com/obrutus">Aniket Vaishnav</a>
+      <hr>
+      <p id="date"><script type="text/javascript">
+        document.getElementById('date').innerHTML=Date();
+      </script></p>
+  </body>
+</html>

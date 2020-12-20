@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GIT Commands</title>
+  </head>
+  <body>
+    <a href="index.html">&lt Dashboard</a>
+    <h2>List of useful Github Commands</h2>
+    <br><hr>
+    Github is a distributed version control system which helps to manage the repositories.
+    These are a list of few commands that you can use frequently on github (git bash)
+    <br><br>
+    1.git help <br>
+    Take help from github help section for different commands and other errors
+    <br><br>
+    2.git config
+    To set the basic congurations on github like your name and email.
+    <br><br>
+    3.git config –global user.name "Aniket Vaishnav"<br>
+    Sets confguration values for your user name on git.
+    <br> <br>
+    4.git config –global user.email aniket.vaishnav@walchandsangli.ac.in <br>
+    Sets conguration values for your user email on git. <br> <br>
+    5.git config –global color.ui true <br>
+    To see different colours on command line for different outputs.<br> <br>
+    6.mkdir store <br>
+    Create a directory if not created initially. <br> <br>
+    7.cd store <br>
+    To go inside the directory and work upon its contents. <br> <br>
+    8.git init <br>
+    To create a local git repository for us in our store folder.This will help to manage the git commands for that particular repository. <br> <br>
+    9.git status <br>
+    To see whats changed since last commit.It shows all the files that have been added and modifed and ready to be commmitted
+    and files which are untracked <br> <br>
+    10.git add Readme.txt <br>
+    To add a file Readme.txt to the staging area to track its changes. <br> <br>
+    11.git commit -m “Created a Readme.txt” <br>
+    To commit our changes(taking a snapshot) and providing a message to remember for future reference. <br> <br>
+    12.git log <br>
+    To check the history of commits for our reference. <br> <br>
+    13.git add <br>
+    To add a specific list of files to staging area. <br> <br>
+    14.git add --all <br>
+    To add all files of current directory to staging area. <br> <br>
+    15.git add *.txt <br>
+    To add all text files of the current directory to staging area. <br> <br>
+    16.git add docs/*.txt <br>
+    To add all text files of a particular directory(docs) to staging area. <br> <br>
+    17.git add docs/ <br>
+    To add all files in a particular directory(docs) to staging area. <br> <br>
+    18.git add “*.txt” <br>
+    To add text files of entire project to staging area. <br> <br>
+    19.git diff <br>
+    To figure out what changes you made since last commit. <br> <br>
+    20.git reset head license <br>
+    To undo staging of the file that was added in the staging area. <br> <br>
+    21.git checkout –license <br>
+    To Blow away all changes since the last commit of the file. <br> <br>
+    22.git commit -a -m “Readme.md” <br>
+    To add any of our tracked files to staging area and commit them by providing a message to remember. <br> <br><br>
+    23.git reset –soft HEAD^<br>
+    To undo last commit and bring file to staging area.<br><br>
+    24.git reset –hard HEAD^<br>
+    To undo last commit and remove file from the staging area as well(In case we went horribly wrong).<br><br>
+    25.git reset –hard HEAD^^<br>
+    To undo last two commits and all changes.<br><br>
+    26.git remote add origin https://github.com/OBrutus/SpeedKiddy.git<br>
+    This commands make a bookmark which signifies that this particular remote refers to this URL. This remote will be used to pull any content from the directory and push our local content to the global server.<br><br>
+    27.git remote add <br>
+    To add new remotes to our local repository for a particular git address.<br><br>
+    28.git remove rm<br>
+    To remove a remote from our local repository.<br><br>
+    29.git push -u origin master<br>
+    To push all the contents of our local repository that belong to master branch to the server(Global repository).<br><br>
+    30.git clone https://github.com/madaan123/MyAlgorithms.git
+    To clone or make a local copy of the global repository in your system
+    (git clone command downloads the repository and creates a remote named as origin which can be checked by command – git
+    remote -v). <br><br>
+    31.git branch Testing <br>
+    To create a new branch named as Testing.<br><br>
+    32.git branch<br>
+    To see all the branches present and current branch that we are working on.<br><br>
+    33.git checkout Testing<br>
+    To switch to branch Testing from master branch.<br><br>
+    34.ls<br>
+    To see directories and files in the current directory.<br><br>
+    35.git merge Testing<br>
+    To merge Testing branch with master branch.<br><br>
+    36.git branch -d Testing<br>
+    To delete Testing branch.<br><br>
+    37.git checkout -b admin<br>
+    To create a new branch admin and set it as current branch.<br><br>
+    38.git branch -r<br>
+    To look at all the remote branches.<br><br>
+    39.git branch -D Testing<br>
+    To forcefully delete a branch without making commmits. <br><br>
+    40.git tag <br>
+    To see the list of available tags. <br><br>
+    41.git checkout v0.0.1 <br>
+    To set the current tag to v0.0.1. <br><br>
+    42.git tag -a v0.0.3 -m “version 0.0.3” <br>
+    To create a new tag. <br><br>
+    43.git push –tags <br>
+    To push the tags to remote repository. <br><br>
+    4x.git fetch <br>
+    To fetch down any changes from global repository to current repository <br><br>
+    45.git rebase <br>
+    Three tasks are performed by git rebase <br>
+    &gt&gt Move all changes to master which are not in origin/master to a temporary area.<br>
+    &gt&gt Run all origin master commits.<br>
+    &gt&gt Run all commits in the temporary area on top of our master one at a time, so it avoids merge commits.<br><br>
+    
+    <footer>
+      <hr size="3%" color="black">
+      Worked under OSS Lab,<br>
+      WCE Sangli.<br>
+      By : 2017BTEIT00062 <br>
+      <a href="https://github.com/obrutus">Aniket Vaishnav</a>
+      <hr>
+      <p id="date"><script type="text/javascript">
+        document.getElementById('date').innerHTML=Date();
+      </script></p>
+    </footer>
+  </body>
+</html>
